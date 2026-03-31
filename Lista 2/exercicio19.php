@@ -22,7 +22,7 @@
         $horas = $dias * 24;
         $minutos = $dias * 24 * 60;
         $segundos = $dias * 24 * 60 * 60;;
-        echo "O $dias em horas é : $horas, em minutos é $minutos, e em segundos é: $segundos";
+        echo " $dias dias em horas é : $horas, em minutos é $minutos, e em segundos é: $segundos";
     }
     ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
