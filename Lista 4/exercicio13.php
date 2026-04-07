@@ -11,8 +11,8 @@
 <h1>Exercício 13 </h1>
 <form method="post">
 <div class="mb-3">
-              <label for="palavra" class="form-label">Digite uma frase</label>
-              <input type="text" id="frase" name="frase" class="form-control" required="">
+              <label for="palavra" class="form-label">Digite uma Palavra</label>
+              <input type="text" id="palavra" name="palavra" class="form-control" required="">
             </div>
 <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
