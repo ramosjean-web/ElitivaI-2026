@@ -3,27 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Exercício 6 </title>
+<title>Exercício 7 </title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body> 
 <div class="container py-3">
-<h1>Exercício 6 </h1>
+<h1>Exercício 7 </h1>
 <form method="post">
 <div class="mb-3">
-              <label for="palavra" class="form-label">Digite uma numero flutuante</label>
-              <input type="text" id="num" name="num" class="form-control" required="">
+              <label for="palavra" class="form-label">Digite uma palavra</label>
+              <input type="text" id="palavra" name="palavra" class="form-control" required="">
             </div>
 <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num = $_POST["num"];
-    
-    echo "<br> Número digitado: $num";
-    echo "<br> Para cima: " . ceil($num);
-    echo "<br> Para baixo: " . floor($num);
-    echo "<br> Normal: " . round($num);
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $mapa = $_POST["palavra"];
+        $invertida = strrev($mapa);
+
+         echo "<br> Palavra $mapa invertida: $invertida";
 }
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
