@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <h2>Cadastro de 5 Produtos</h2>
+    <h2>Exercício 3</h2>
 
     <form method="post">
         <?php

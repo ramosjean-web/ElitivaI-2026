@@ -14,7 +14,7 @@
             echo "Nome do aluno $i: <input type='text' name='nome[]' required><br><br>";
             echo "Nota 1: <input type='number' name='nota1[]' step='0.1' required><br><br>";
             echo "Nota 2: <input type='number' name='nota2[]' step='0.1' required><br><br>";
-            echo "Nota 3: <input type='number' name='nota3[]' step='0.1' required><br><br><hr>";
+            echo "Nota 3: <input type='number' name='nota3[]' step='0.1' required><br><br>";
         }
         ?>
         <input type="submit" value="Calcular Médias">
