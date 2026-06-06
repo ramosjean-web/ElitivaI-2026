@@ -62,7 +62,11 @@ body{
                         <button class="btn btn-primary w-100">
                             Entrar
                         </button>
-
+                        <div class="text-center mt-4">
+                        <a href="cadastro.html" class="btn btn-outline-primary w-100">
+                        Criar Nova Conta
+                            </a>
+                            </div>
                     </form>
 
                 </div>
