@@ -70,7 +70,7 @@ body{
 
                         <div class="text-center mt-3">
                             Já possui uma conta?
-                            <a href="index.html" class="text-decoration-none fw-bold">
+                            <a href="index.php" class="text-decoration-none fw-bold">
                                 Fazer Login
                             </a>
                         </div>
