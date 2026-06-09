@@ -79,14 +79,14 @@ if (!isset($_SESSION['acesso']) || $_SESSION['acesso'] == false) {
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/Cadastros/tecnicos.php">
+                                <a class="dropdown-item" href="/Tecnico/tecnico.php">
                                     <i class="bi bi-person-gear"></i>
                                     Novo Técnico
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/Cadastros/servicos.php">
+                                <a class="dropdown-item" href="/Servico/servico.php">
                                     <i class="bi bi-wrench-adjustable"></i>
                                     Novo Serviço
                                 </a>

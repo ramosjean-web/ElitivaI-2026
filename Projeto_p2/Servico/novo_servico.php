@@ -1,0 +1,74 @@
+<?php
+require_once('../conexao.php');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $valor = $_POST['valor'];
+    $status = $_POST['status'];
+
+    $sql = "INSERT INTO servicos 
+            (nome, descricao, valor, status)
+            VALUES (?, ?, ?, ?)";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        $nome,
+        $descricao,
+        $valor,
+        $status
+    ]);
+
+    header('Location: listar_servico.php');
+    exit;
+}
+
+require_once('../cabecalho.php');
+?>
+
+<div class="container mt-4">
+
+    <h2>
+        <i class="bi bi-plus-circle"></i>
+        Novo Serviço
+    </h2>
+
+    <form method="POST" class="mt-4">
+
+        <div class="mb-3">
+            <label class="form-label">Nome do Serviço</label>
+            <input type="text" name="nome" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Descrição</label>
+            <textarea name="descricao" class="form-control" rows="4"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Valor</label>
+            <input type="number" step="0.01" name="valor" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Status</label>
+            <select name="status" class="form-control">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Salvar
+        </button>
+
+        <a href="servico.php" class="btn btn-secondary">
+            Cancelar
+        </a>
+
+    </form>
+
+</div>
+
+<?php require_once('../rodape.php'); ?> 
