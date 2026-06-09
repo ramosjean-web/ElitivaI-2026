@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once('../conexao.php');
 
 $id = $_GET['id'] ?? null;
@@ -16,9 +16,6 @@ $equipamento = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$equipamento) {
     die("Equipamento não encontrado.");
 }
-
-$nome = $equipamento['nome'];
-$quantidade = $equipamento['quantidade'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -38,16 +35,16 @@ require_once('../cabecalho.php');
     <h2 class="text-danger">Excluir Equipamento</h2>
 
     <div class="alert alert-warning">
-        Tem certeza que deseja excluir este equipamento?
+        Deseja realmente excluir este equipamento?
     </div>
 
-    <p><strong>Nome:</strong> <?= htmlspecialchars($nome) ?></p>
-    <p><strong>Wuantidade:</strong> <?= htmlspecialchars($quantidade) ?></p>
+    <p><strong>Nome:</strong> <?= htmlspecialchars($equipamento['nome']) ?></p>
+    <p><strong>Quantidade:</strong> <?= htmlspecialchars($equipamento['quantidade']) ?></p>
 
-    <form method="POST">
+    <form method="POST" id="formExcluir">
 
-        <button type="submit" class="btn btn-danger">
-            Sim, excluir
+        <button type="button" class="btn btn-danger" onclick="confirmarExclusao()">
+            Excluir
         </button>
 
         <a href="listar_equipamento.php" class="btn btn-secondary">
@@ -57,5 +54,24 @@ require_once('../cabecalho.php');
     </form>
 
 </div>
+
+<script>
+function confirmarExclusao() {
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: 'Esta ação não poderá ser desfeita.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Sim, excluir',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('formExcluir').submit();
+        }
+    });
+}
+</script>
 
 <?php require_once('../rodape.php'); ?>

@@ -13,7 +13,7 @@ $resultado = $stmt->fetchAll();
 <tr>
     <th>ID</th>
     <th>Nome</th>
-    <th>Patrimônio</th>
+    <th>Quantidade</th>
     <th>Ações</th>
 </tr>
 

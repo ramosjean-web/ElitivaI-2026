@@ -14,9 +14,6 @@ $sql = "SELECT
             t.nome AS tecnico,
             s.nome AS servico,
             m.tipo,
-            m.descricao,
-            m.data_abertura,
-            m.data_conclusao,
             m.status
         FROM manutencoes m
         INNER JOIN equipamentos e ON m.equipamento_id = e.id
@@ -50,19 +47,19 @@ require_once('../cabecalho.php');
     <h2 class="text-danger">Excluir Manutenção</h2>
 
     <div class="alert alert-warning">
-        Tem certeza que deseja excluir esta manutenção?
+        Deseja realmente excluir esta manutenção?
     </div>
 
     <p><strong>Equipamento:</strong> <?= htmlspecialchars($manutencao['equipamento']) ?></p>
     <p><strong>Técnico:</strong> <?= htmlspecialchars($manutencao['tecnico']) ?></p>
-    <p><strong>Serviço:</strong> <?= htmlspecialchars($manutencao['servico'] ?? '') ?></p>
+    <p><strong>Serviço:</strong> <?= htmlspecialchars($manutencao['servico']) ?></p>
     <p><strong>Tipo:</strong> <?= htmlspecialchars($manutencao['tipo']) ?></p>
     <p><strong>Status:</strong> <?= htmlspecialchars($manutencao['status']) ?></p>
 
-    <form method="POST">
+    <form method="POST" id="formExcluir">
 
-        <button type="submit" class="btn btn-danger">
-            Sim, excluir
+        <button type="button" class="btn btn-danger" onclick="confirmarExclusao()">
+            Excluir
         </button>
 
         <a href="listar_manutencao.php" class="btn btn-secondary">
@@ -72,5 +69,24 @@ require_once('../cabecalho.php');
     </form>
 
 </div>
+
+<script>
+function confirmarExclusao() {
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: 'Esta ação não poderá ser desfeita.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Sim, excluir',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('formExcluir').submit();
+        }
+    });
+}
+</script>
 
 <?php require_once('../rodape.php'); ?>

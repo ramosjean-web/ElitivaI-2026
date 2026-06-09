@@ -17,11 +17,6 @@ if (!$servico) {
     die("Serviço não encontrado.");
 }
 
-$nome = $servico['nome'];
-$descricao = $servico['descricao'];
-$valor = $servico['valor'];
-$status = $servico['status'];
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = "DELETE FROM servicos WHERE id = ?";
@@ -40,18 +35,16 @@ require_once('../cabecalho.php');
     <h2 class="text-danger">Excluir Serviço</h2>
 
     <div class="alert alert-warning">
-        Tem certeza que deseja excluir este serviço?
+        Deseja realmente excluir este serviço?
     </div>
 
-    <p><strong>Nome:</strong> <?= htmlspecialchars($nome) ?></p>
-    <p><strong>Descrição:</strong> <?= htmlspecialchars($descricao) ?></p>
-    <p><strong>Valor:</strong> R$ <?= number_format($valor, 2, ',', '.') ?></p>
-    <p><strong>Status:</strong> <?= htmlspecialchars($status) ?></p>
+    <p><strong>Nome:</strong> <?= htmlspecialchars($servico['nome']) ?></p>
+    <p><strong>Status:</strong> <?= htmlspecialchars($servico['status']) ?></p>
 
-    <form method="POST">
+    <form method="POST" id="formExcluir">
 
-        <button type="submit" class="btn btn-danger">
-            Sim, excluir
+        <button type="button" class="btn btn-danger" onclick="confirmarExclusao()">
+            Excluir
         </button>
 
         <a href="listar_servico.php" class="btn btn-secondary">
@@ -61,5 +54,24 @@ require_once('../cabecalho.php');
     </form>
 
 </div>
+
+<script>
+function confirmarExclusao() {
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: 'Esta ação não poderá ser desfeita.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Sim, excluir',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('formExcluir').submit();
+        }
+    });
+}
+</script>
 
 <?php require_once('../rodape.php'); ?>

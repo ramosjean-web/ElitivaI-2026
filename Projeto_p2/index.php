@@ -64,34 +64,60 @@ body{
                             </a>
                             </div>
                     </form>
-                    
-                        <?php
-                            require_once('conexao.php');
-                            session_start();
-                            if ($_SERVER['REQUEST_METHOD'] == "POST"){
-                            $email = $_POST['email'];
-                            $senha = $_POST['senha'];
-                            try{
-                            
-                            $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
-                            
-                            $stmt->execute([$email]);
-                            $usuario = $stmt->fetch();
-                            $senha_correta = password_verify($senha, $usuario['senha']);
-                            if($usuario && $senha_correta){
-                            $_SESSION['nome'] = $usuario['nome'];  
-                            $_SESSION['acesso'] = true;
-                            header('Location: principal.php');
-                                }else{
-                                echo "<p class='text-danger'>Credenciais Inválidas!</p>";
-                                }
-                            }catch(Exception $e){
-                                echo "Erro: " .$e->getMessage();
-                            }
-                            
-                            }
+                    ```php
+<?php
 
-                        ?>
+require_once('conexao.php');
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    try {
+
+        $stmt = $pdo->prepare(
+            "SELECT * FROM usuarios WHERE email = ?"
+        );
+
+        $stmt->execute([$email]);
+
+        $usuario = $stmt->fetch();
+
+        $senha_correta = password_verify(
+            $senha,
+            $usuario['senha']
+        );
+
+        if ($usuario && $senha_correta) {
+
+            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['acesso'] = true;
+
+            header('Location: principal.php');
+            exit;
+
+        } else {
+
+            echo "<p class='text-danger'>
+                    Credenciais Inválidas!
+                  </p>";
+
+        }
+
+    } catch (Exception $e) {
+
+        echo "Erro: " . $e->getMessage();
+
+    }
+
+}
+
+?>
+```
+    
                 </div>
 
             </div>

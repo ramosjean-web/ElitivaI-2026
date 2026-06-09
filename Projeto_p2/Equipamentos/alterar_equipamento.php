@@ -77,7 +77,7 @@ require_once('../cabecalho.php');
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Patrimônio</label>
+            <label class="form-label">Quantidade</label>
             <input type="text" name="quantidade" class="form-control"
                    value="<?= htmlspecialchars($quantidade) ?>">
         </div>

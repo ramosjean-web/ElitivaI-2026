@@ -13,7 +13,6 @@
         <p>
             Sistema de Controle de Manutenção de Equipamentos
         </p>
-
     </div>
 
 </div>
