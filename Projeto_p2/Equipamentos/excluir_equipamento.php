@@ -1,5 +1,4 @@
 <?php
-require_once('../cabecalho.php');
 require_once('../conexao.php');
 
 $id = $_GET['id'] ?? null;
@@ -12,12 +11,14 @@ if (!$id) {
 $sql = "SELECT * FROM equipamentos WHERE id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$id]);
-$equipamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$equipamento = $stmt->fetch(PDO::FETCH_ASSOC);
 
-foreach ($equipamentos as $equipamento) {
-    $nome = $equipamento['nome'];
-    $patrimonio = $equipamento['patrimonio'];
+if (!$equipamento) {
+    die("Equipamento não encontrado.");
 }
+
+$nome = $equipamento['nome'];
+$patrimonio = $equipamento['patrimonio'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -28,6 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Location: listar_equipamento.php');
     exit;
 }
+
+require_once('../cabecalho.php');
 ?>
 
 <div class="container mt-4">
@@ -38,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         Tem certeza que deseja excluir este equipamento?
     </div>
 
-    <p><strong>Nome:</strong> <?= $nome ?></p>
-    <p><strong>Patrimônio:</strong> <?= $patrimonio ?></p>
+    <p><strong>Nome:</strong> <?= htmlspecialchars($nome) ?></p>
+    <p><strong>Patrimônio:</strong> <?= htmlspecialchars($patrimonio) ?></p>
 
     <form method="POST">
 
