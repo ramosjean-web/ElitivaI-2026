@@ -23,7 +23,7 @@ $resultado = $stmt->fetchAll();
 
     <td><?= $r['id'] ?></td>
     <td><?= $r['nome'] ?></td>
-    <td><?= $r['patrimonio'] ?></td>
+    <td><?= $r['quantidade'] ?></td>
 
     <td>
 

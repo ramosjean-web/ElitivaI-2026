@@ -81,7 +81,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <label class="form-label">Patrimônio</label>
                             <input type="text"
                                    class="form-control"
-                                   value="<?= $resultado['patrimonio'] ?>"
+                                   value="<?= $resultado['quantidade'] ?>"
                                    readonly>
                         </div>
 

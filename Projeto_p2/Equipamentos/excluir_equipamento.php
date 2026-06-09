@@ -18,7 +18,7 @@ if (!$equipamento) {
 }
 
 $nome = $equipamento['nome'];
-$patrimonio = $equipamento['patrimonio'];
+$quantidade = $equipamento['quantidade'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -42,7 +42,7 @@ require_once('../cabecalho.php');
     </div>
 
     <p><strong>Nome:</strong> <?= htmlspecialchars($nome) ?></p>
-    <p><strong>Patrimônio:</strong> <?= htmlspecialchars($patrimonio) ?></p>
+    <p><strong>Wuantidade:</strong> <?= htmlspecialchars($quantidade) ?></p>
 
     <form method="POST">
 

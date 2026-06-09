@@ -6,7 +6,7 @@ $stmt = $pdo->prepare("
 INSERT INTO equipamentos
 (
 nome,
-patrimonio,
+quantidade,
 modelo,
 fabricante,
 setor,
@@ -21,7 +21,7 @@ VALUES
 
 $stmt->execute([
 $_POST['nome'],
-$_POST['patrimonio'],
+$_POST['quantidade'],
 $_POST['modelo'],
 $_POST['fabricante'],
 $_POST['setor'],

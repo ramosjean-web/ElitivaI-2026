@@ -14,8 +14,8 @@ require_once('../cabecalho.php');
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Patrimônio</label>
-            <input type="text" name="patrimonio" class="form-control">
+            <label class="form-label">Quantidade</label>
+            <input type="text" name="quantidade" class="form-control">
         </div>
 
         <div class="mb-3">

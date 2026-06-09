@@ -181,7 +181,7 @@ require_once('../cabecalho.php');
             Salvar
         </button>
 
-        <a href="manutencoe.php" class="btn btn-secondary">
+        <a href="manutencoes.php" class="btn btn-secondary">
             Cancelar
         </a>
 

@@ -18,7 +18,7 @@ if (!$equipamento) {
 }
 
 $nome = $equipamento['nome'];
-$patrimonio = $equipamento['patrimonio'];
+$quantidade = $equipamento['quantidade'];
 $modelo = $equipamento['modelo'];
 $fabricante = $equipamento['fabricante'];
 $setor = $equipamento['setor'];
@@ -28,7 +28,7 @@ $status = $equipamento['status'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nome = $_POST['nome'];
-    $patrimonio = $_POST['patrimonio'];
+    $quantidade = $_POST['quantidade'];
     $modelo = $_POST['modelo'];
     $fabricante = $_POST['fabricante'];
     $setor = $_POST['setor'];
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = "UPDATE equipamentos 
             SET nome = ?,
-                patrimonio = ?,
+                quantidade = ?,
                 modelo = ?,
                 fabricante = ?,
                 setor = ?,
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         $nome,
-        $patrimonio,
+        $quantidade,
         $modelo,
         $fabricante,
         $setor,
@@ -78,8 +78,8 @@ require_once('../cabecalho.php');
 
         <div class="mb-3">
             <label class="form-label">Patrimônio</label>
-            <input type="text" name="patrimonio" class="form-control"
-                   value="<?= htmlspecialchars($patrimonio) ?>">
+            <input type="text" name="quantidade" class="form-control"
+                   value="<?= htmlspecialchars($quantidade) ?>">
         </div>
 
         <div class="mb-3">
