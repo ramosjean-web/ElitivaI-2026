@@ -64,7 +64,7 @@ body{
                             </a>
                             </div>
                     </form>
-                    ```php
+                    
 <?php
 
 require_once('conexao.php');
@@ -116,8 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 
 ?>
-```
-    
+
+
                 </div>
 
             </div>
